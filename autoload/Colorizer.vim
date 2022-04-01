@@ -1993,7 +1993,8 @@ function! s:TermConceal(pattern) "{{{1
     for pat in a:pattern
         exe "syn match ColorTermESC /". pat. "/ conceal containedin=ALL"
     endfor
-    setl cocu=nv cole=2
+    exe 'setl cocu='.get(g:,'colorizer_conceal_modes','nv')
+    setl cole=2
     let b:Colorizer_did_syntax=1
 endfu
 function! s:GetColorPattern(list) "{{{1
